@@ -1,6 +1,6 @@
 # Flint Agent Plugin
 
-Build and manage websites with [Flint](https://www.flint.com)'s AI website builder from your AI agent: Claude Code, Codex, ChatGPT, Cursor, Grok, and Muse.
+Build and manage websites with [Flint](https://flint.com)'s AI website builder from your AI agent: Claude Code, Codex, ChatGPT, Cursor, Gemini CLI, Grok, and Muse.
 
 ## Features
 
@@ -37,6 +37,12 @@ codex mcp login flint
 ### Cursor
 
 Install Flint from the [Cursor Marketplace](https://cursor.com/marketplace), or import this repository under Dashboard → Plugins & MCPs → Team Marketplaces.
+
+### Gemini CLI
+
+```
+gemini extensions install https://github.com/tryflint/agent-plugin
+```
 
 ### Grok Build
 
@@ -79,15 +85,16 @@ One plugin, one skill, and one MCP server, described once per agent:
 | `.claude-plugin/`, `.mcp.json` | Claude Code, Grok Build, Muse Code |
 | `.cursor-plugin/plugin.json` | Cursor and Grok Bot |
 | `.grok-plugin/plugin.json` | Grok Build plugin catalog |
+| `gemini-extension.json` | Gemini CLI and its extension gallery |
 | `skills/` | Every agent |
 
 release-please stamps one version into every manifest, and CI checks they match.
 
 ## Support
 
-- Documentation: https://www.flint.com/docs/claude-code-plugin
+- Documentation: https://flint.com/docs/claude-code-plugin
 - Email: support@tryflint.com
 
 ## Privacy Policy
 
-https://www.flint.com/privacy-policy
+https://flint.com/privacy-policy

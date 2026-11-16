@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Codex and OpenAI plugin directory support: an Agent Plugins `plugin.json` and `mcp.json`, plus a Codex marketplace in `.agents/plugins/marketplace.json`.
-- Cursor and Grok manifests in `.cursor-plugin/` and `.grok-plugin/`.
+- Cursor and Grok manifests in `.cursor-plugin/` and `.grok-plugin/`, and a Gemini CLI extension in `gemini-extension.json`.
 - A Claude Code marketplace in `.claude-plugin/marketplace.json`, which Grok Build and Muse Code also read.
 
 ## [1.2.0] - 2026-11-12

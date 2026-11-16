@@ -5,12 +5,23 @@
   "author": {
     "name": "Flint",
     "email": "support@tryflint.com",
-    "url": "https://www.flint.com"
+    "url": "https://flint.com"
   },
-  "homepage": "https://www.flint.com/docs/claude-code-plugin",
+  "homepage": "https://flint.com/docs/claude-code-plugin",
   "repository": "https://github.com/tryflint/agent-plugin",
   "license": "MIT",
-  "keywords": ["flint", "website-builder", "landing-pages", "web-design"],
+  "keywords": [
+    "flint",
+    "ai-website-builder",
+    "website-builder",
+    "landing-pages",
+    "marketing-website",
+    "performance-marketing",
+    "conversion-optimization",
+    "ab-testing",
+    "seo",
+    "web-design"
+  ],
   "skills": "./skills/",
   "mcpServers": "./.mcp.json"
 }
