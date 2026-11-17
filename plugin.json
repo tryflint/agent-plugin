@@ -65,21 +65,21 @@
             },
             {
               "description": "Setup: Acme Demo Website exists. Adds a new page by chatting with the Flint agent, which can take several minutes.",
-              "prompt": "Add a pricing page with three tiers to my Flint site Acme Demo Website.",
+              "prompt": "Add a pricing page with three tiers to my Flint site Acme Demo Website. If it already has one, update it to three tiers.",
               "tools_triggered": "list_sites, start_chat, wait_for_reply",
-              "expected_behavior": "Calls list_sites to find Acme Demo Website's siteId, calls start_chat with that siteId and a message asking for a three-tier pricing page without writing code, then calls wait_for_reply with the returned chatId and messageId again on each running status until it completes. Reports Flint's summary and any preview link from the reply."
+              "expected_behavior": "Calls list_sites to find Acme Demo Website's siteId, calls start_chat with that siteId and a message asking for a three-tier pricing page, or an update to the existing one, without writing code, then calls wait_for_reply with the returned chatId and messageId again on each running status until it completes. Reports Flint's summary and any preview link from the reply."
             },
             {
               "description": "Setup: Acme Demo Website exists. Sends a follow-up in the same chat after Flint replies.",
               "prompt": "On Acme Demo Website, change the homepage hero headline to 'Launch faster with Acme'. When that's done, make the main button say 'Get started'.",
               "tools_triggered": "list_sites, start_chat, wait_for_reply, send_message",
-              "expected_behavior": "Starts one chat with start_chat for the headline change and waits with wait_for_reply until it completes, then calls send_message with the same chatId for the button change and waits again with the new messageId. Reports both changes from Flint's replies and starts no second chat."
+              "expected_behavior": "Starts one chat with start_chat for the headline change and waits with wait_for_reply until it completes, then calls send_message with the same chatId for the button change and waits again with the new messageId. Reports both outcomes from Flint's replies, including when a change was already in place from an earlier run, and starts no second chat."
             },
             {
               "description": "Setup: Acme Demo Website exists. Publishes only on an explicit request.",
               "prompt": "Publish my Flint site Acme Demo Website to production.",
               "tools_triggered": "list_sites, publish_site",
-              "expected_behavior": "Calls list_sites to find Acme Demo Website's siteId, calls publish_site once with that siteId, and confirms the publish using the tool response."
+              "expected_behavior": "Calls list_sites to find Acme Demo Website's siteId, calls publish_site once with that siteId, and confirms the publish using the tool response. If nothing changed since the last publish, the tool returns nothing_to_publish and the assistant says the site is already up to date."
             }
           ],
           "negative": [
