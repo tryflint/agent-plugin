@@ -1,6 +1,6 @@
 # Flint Agent Plugin
 
-Build and manage websites with [Flint](https://flint.com)'s AI website builder from your AI agent: Claude Code, Codex, ChatGPT, Cursor, Gemini CLI, Google Antigravity, Grok, and Muse.
+Build and manage websites with [Flint](https://flint.com)'s AI website builder from your AI agent: Claude Code, Codex, ChatGPT, Cursor, Google Antigravity, Grok Build, and Grok Bot.
 
 ## Features
 
@@ -38,25 +38,9 @@ codex mcp login flint
 
 Install Flint from the [Cursor Marketplace](https://cursor.com/marketplace), or import this repository under Dashboard → Plugins & MCPs → Team Marketplaces.
 
-### Gemini CLI
-
-```
-gemini extensions install https://github.com/tryflint/agent-plugin
-```
-
 ### Grok Build
 
 Grok Build reads Claude Code marketplaces, so the Claude Code marketplace command above works there too.
-
-### Muse Code
-
-Muse Code loads the skill from this plugin, but it won't sign in to a plugin's MCP server. Add the server to `~/.config/muse/settings.json`:
-
-```json
-{ "mcpServers": { "flint": { "type": "streamable-http", "url": "https://mcp.tryflint.com/mcp" } } }
-```
-
-Then run `muse mcp login flint`.
 
 ### Other MCP clients
 
@@ -83,6 +67,15 @@ In Claude Code you can also use the `/flint:edit-site` skill directly:
 - **Describe goals, not implementation** — Flint is an expert designer and produces better results when given creative freedom over layout, styling, and component structure
 - **Pass through reference material** — if you have code snippets, embed scripts, or examples, include them and Flint will incorporate them
 - **Be specific when you want to be** — requests like "make the header black" or "use a three-column grid" are honored directly
+
+## Network endpoints
+
+The plugin contains no executable code. Your agent connects to:
+
+- `https://mcp.tryflint.com/mcp`: Flint's hosted MCP server, which every tool call goes to
+- `https://clerk.tryflint.com`: Flint's OAuth sign-in (authorization and token endpoints)
+
+The MCP server calls Flint's API at `https://app.tryflint.com` on your behalf.
 
 ## Support
 

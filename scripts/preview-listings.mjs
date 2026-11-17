@@ -57,10 +57,8 @@ const files = {
   cursor: ".cursor-plugin/plugin.json",
   cursorMarket: ".cursor-plugin/marketplace.json",
   grok: ".grok-plugin/plugin.json",
-  muse: ".muse-plugin/plugin.json",
   antigravity: ".antigravity-plugin/plugin.json",
   antigravityMcp: "mcp_config.json",
-  gemini: "gemini-extension.json",
 }
 const m = Object.fromEntries(Object.entries(files).map(([k, f]) => [k, read(f)]))
 
@@ -190,17 +188,6 @@ const tabs = [
     </table>`,
   },
   {
-    id: "muse",
-    title: "Muse Code",
-    reads: ".muse-plugin/plugin.json (Muse reads root plugin.json first when it exists)",
-    body: () => `${note("Muse Code reads the root <code>plugin.json</code> ahead of <code>.muse-plugin/plugin.json</code>. Muse cannot sign in to a plugin's MCP server, so users add Flint in settings and run <code>muse mcp login flint</code>.")}
-    <div class="card">${logo("cursor", "logo")}<div><h3>${field("muse", "displayName")}</h3><div class="sub">${field("muse", "description")}</div><div class="by">v${field("muse", "version")}</div></div></div>
-    <table>
-      ${row("Skills", field("muse", "capabilities.skills.0.id"))}
-      ${row("MCP servers", "<em class=\"missing\">none (Muse limitation)</em>")}
-    </table>`,
-  },
-  {
     id: "antigravity",
     title: "Antigravity",
     reads: ".antigravity-plugin/plugin.json, mcp_config.json",
@@ -212,15 +199,6 @@ const tabs = [
       ${row("Repository", field("antigravity", "repository", { as: "link" }))}
       ${row("MCP server", field("antigravityMcp", "mcpServers.flint.serverUrl"))}
     </table>`,
-  },
-  {
-    id: "gemini",
-    title: "Gemini CLI",
-    reads: "gemini-extension.json, skills/",
-    body: () => `${note("The extension gallery lists public repos tagged with the <code>gemini-cli-extension</code> topic. It shows the repo's name, description and stars, not a custom logo.")}
-    <div class="card"><div class="logo none">repo</div><div><h3>${field("gemini", "name")}</h3><div class="sub">${field("gemini", "description")}</div><div class="by">v${field("gemini", "version")}</div></div></div>
-    <table>${row("MCP server", field("gemini", "mcpServers.flint.url"))}</table>
-    <pre>gemini extensions install https://github.com/tryflint/agent-plugin</pre>`,
   },
 ]
 

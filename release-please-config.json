@@ -20,22 +20,12 @@
         },
         {
           "type": "json",
-          "path": "gemini-extension.json",
-          "jsonpath": "$.version"
-        },
-        {
-          "type": "json",
           "path": ".antigravity-plugin/plugin.json",
           "jsonpath": "$.version"
         },
         {
           "type": "json",
           "path": ".grok-plugin/plugin.json",
-          "jsonpath": "$.version"
-        },
-        {
-          "type": "json",
-          "path": ".muse-plugin/plugin.json",
           "jsonpath": "$.version"
         }
       ]
