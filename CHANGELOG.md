@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - A Cursor manifest and marketplace in `.cursor-plugin/`, and a Gemini CLI extension in `gemini-extension.json`.
 - A Claude Code marketplace in `.claude-plugin/marketplace.json`, which Grok Build also reads.
 - Google Antigravity support in `.antigravity-plugin/` and `mcp_config.json`.
+- Native Grok Build and Muse Code manifests in `.grok-plugin/` and `.muse-plugin/`.
 - Directory listing fields in `.claude-plugin/plugin.json`: display name, icon, and documentation, support, and terms URLs.
 
 ## [1.2.0] - 2026-11-12

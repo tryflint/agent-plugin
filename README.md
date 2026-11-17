@@ -84,22 +84,6 @@ In Claude Code you can also use the `/flint:edit-site` skill directly:
 - **Pass through reference material** — if you have code snippets, embed scripts, or examples, include them and Flint will incorporate them
 - **Be specific when you want to be** — requests like "make the header black" or "use a three-column grid" are honored directly
 
-## Repository layout
-
-One plugin, one skill, and one MCP server, described once per agent:
-
-| File | Read by |
-| --- | --- |
-| `plugin.json`, `mcp.json` | Agent Plugins format: Codex, the OpenAI plugin directory, and Muse Code. Grok Build and Codex read this ahead of their own folders |
-| `.agents/plugins/marketplace.json` | Codex and Muse Code marketplaces |
-| `.claude-plugin/`, `.mcp.json` | Claude Code. Grok Build also takes its MCP server from `.mcp.json` |
-| `.cursor-plugin/` | Cursor and Grok Bot |
-| `.antigravity-plugin/plugin.json`, `mcp_config.json` | Google Antigravity |
-| `gemini-extension.json` | Gemini CLI and its extension gallery |
-| `skills/` | Every agent |
-
-release-please stamps one version into every manifest, and CI checks they match.
-
 ## Support
 
 - Documentation: https://flint.com/docs/claude-code-plugin
