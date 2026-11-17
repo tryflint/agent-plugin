@@ -1,6 +1,6 @@
-# Flint Plugin for Claude Code
+# Flint Agent Plugin
 
-Build and manage websites with [Flint](https://tryflint.com)'s AI website builder through natural conversation in Claude Code.
+Build and manage websites with [Flint](https://flint.com)'s AI website builder from your AI agent: Claude Code, Codex, ChatGPT, Cursor, Google Antigravity, Grok Build, and Grok Bot.
 
 ## Features
 
@@ -8,25 +8,47 @@ Build and manage websites with [Flint](https://tryflint.com)'s AI website builde
 - **List your sites** across all connected organizations
 - **Publish sites** to production when you're ready to go live
 
+Every agent connects to the same hosted MCP server, `https://mcp.tryflint.com/mcp`, and signs you in with your Flint account the first time it calls a tool. Your Flint organization must be on the Starter plan or above.
+
 ## Installation
 
-Install from the Claude Code plugin marketplace:
+### Claude Code
 
 ```
 /plugin install flint
 ```
 
-After installing, authenticate with your Flint account:
+Or from this repository's marketplace:
 
 ```
-/mcp
+/plugin install flint --marketplace tryflint/agent-plugin
 ```
 
-Select "Authenticate" for Flint and complete the browser login flow.
+Then run `/mcp`, select Flint, and choose "Authenticate".
+
+### Codex
+
+```
+codex plugin marketplace add tryflint/agent-plugin
+codex plugin add flint@flint
+codex mcp login flint
+```
+
+### Cursor
+
+Install Flint from the [Cursor Marketplace](https://cursor.com/marketplace), or import this repository under Dashboard → Plugins & MCPs → Team Marketplaces.
+
+### Grok Build
+
+Grok Build reads Claude Code marketplaces, so the Claude Code marketplace command above works there too.
+
+### Other MCP clients
+
+Add a custom connector pointing at `https://mcp.tryflint.com/mcp` and sign in with Flint. This works in ChatGPT, Claude.ai, grok.com, and Grok Bot.
 
 ## Usage
 
-Once authenticated, just ask Claude to work on your Flint site:
+Once authenticated, just ask your agent to work on your Flint site:
 
 > "Add a pricing page with three tiers to my site"
 
@@ -34,7 +56,7 @@ Once authenticated, just ask Claude to work on your Flint site:
 
 > "Publish my site"
 
-You can also use the `/flint:edit-site` skill directly:
+In Claude Code you can also use the `/flint:edit-site` skill directly:
 
 ```
 /flint:edit-site Add a contact form with name, email, and message fields
@@ -46,11 +68,20 @@ You can also use the `/flint:edit-site` skill directly:
 - **Pass through reference material** — if you have code snippets, embed scripts, or examples, include them and Flint will incorporate them
 - **Be specific when you want to be** — requests like "make the header black" or "use a three-column grid" are honored directly
 
+## Network endpoints
+
+The plugin contains no executable code. Your agent connects to:
+
+- `https://mcp.tryflint.com/mcp`: Flint's hosted MCP server, which every tool call goes to
+- `https://clerk.tryflint.com`: Flint's OAuth sign-in (authorization and token endpoints)
+
+The MCP server calls Flint's API at `https://app.tryflint.com` on your behalf.
+
 ## Support
 
-- Documentation: https://www.tryflint.com/docs/claude-code-plugin
+- Documentation: https://flint.com/docs/claude-code-plugin
 - Email: support@tryflint.com
 
 ## Privacy Policy
 
-https://www.tryflint.com/privacy-policy
+https://flint.com/privacy-policy
