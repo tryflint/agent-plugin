@@ -10,6 +10,7 @@
   "homepage": "https://flint.com/docs/claude-code-plugin",
   "repository": "https://github.com/tryflint/agent-plugin",
   "license": "MIT",
+  "logo": "./assets/logo.svg",
   "keywords": [
     "flint",
     "ai-website-builder",

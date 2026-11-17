@@ -1,6 +1,6 @@
 # Flint Agent Plugin
 
-Build and manage websites with [Flint](https://flint.com)'s AI website builder from your AI agent: Claude Code, Codex, ChatGPT, Cursor, Gemini CLI, Grok, and Muse.
+Build and manage websites with [Flint](https://flint.com)'s AI website builder from your AI agent: Claude Code, Codex, ChatGPT, Cursor, Gemini CLI, Google Antigravity, Grok, and Muse.
 
 ## Features
 
@@ -82,13 +82,15 @@ One plugin, one skill, and one MCP server, described once per agent:
 | --- | --- |
 | `plugin.json`, `mcp.json` | Agent Plugins format: Codex and the OpenAI plugin directory |
 | `.agents/plugins/marketplace.json` | Codex marketplace |
-| `.claude-plugin/`, `.mcp.json` | Claude Code, Grok Build, Muse Code |
-| `.cursor-plugin/plugin.json` | Cursor and Grok Bot |
+| `.claude-plugin/`, `.mcp.json` | Claude Code and Grok Build |
+| `.cursor-plugin/` | Cursor and Grok Bot |
 | `.grok-plugin/plugin.json` | Grok Build plugin catalog |
-| `gemini-extension.json` | Gemini CLI and its extension gallery |
+| `.muse-plugin/plugin.json` | Muse Code |
+| `.antigravity-plugin/plugin.json` | Google Antigravity |
+| `gemini-extension.json`, `GEMINI.md` | Gemini CLI and its extension gallery. `GEMINI.md` repeats the skill, because Gemini extensions can't load `skills/` |
 | `skills/` | Every agent |
 
-release-please stamps one version into every manifest, and CI checks they match.
+release-please stamps one version into every manifest, and CI checks they match and that `GEMINI.md` matches the skill.
 
 ## Support
 
