@@ -52,44 +52,44 @@
         "test_cases": {
           "positive": [
             {
-              "description": "Setup: the test account has a site named Acme Demo. Lists the user's sites.",
+              "description": "Setup: the test account has a site named Acme Demo Website. Lists the user's sites.",
               "prompt": "What Flint sites do I have?",
               "tools_triggered": "list_sites",
-              "expected_behavior": "Calls list_sites with no organizationId and lists the returned sites by name with their production URLs, including Acme Demo. Names no site the tool did not return."
+              "expected_behavior": "Calls list_sites with no organizationId and lists the returned sites by name with their production URLs, including Acme Demo Website. Names no site the tool did not return."
             },
             {
-              "description": "Setup: the test account belongs to one organization. Lists the user's organizations.",
+              "description": "Setup: the test account belongs to one organization, Acme Demo. Lists the user's organizations.",
               "prompt": "Which Flint organizations am I a member of?",
               "tools_triggered": "list_organizations",
               "expected_behavior": "Calls list_organizations and names each returned organization, matching the tool response."
             },
             {
-              "description": "Setup: Acme Demo exists. Adds a new page by chatting with the Flint agent, which can take several minutes.",
-              "prompt": "Add a pricing page with three tiers to my Flint site Acme Demo.",
+              "description": "Setup: Acme Demo Website exists. Adds a new page by chatting with the Flint agent, which can take several minutes.",
+              "prompt": "Add a pricing page with three tiers to my Flint site Acme Demo Website.",
               "tools_triggered": "list_sites, start_chat, wait_for_reply",
-              "expected_behavior": "Calls list_sites to find Acme Demo's siteId, calls start_chat with that siteId and a message asking for a three-tier pricing page without writing code, then calls wait_for_reply with the returned chatId and messageId again on each running status until it completes. Reports Flint's summary and any preview link from the reply."
+              "expected_behavior": "Calls list_sites to find Acme Demo Website's siteId, calls start_chat with that siteId and a message asking for a three-tier pricing page without writing code, then calls wait_for_reply with the returned chatId and messageId again on each running status until it completes. Reports Flint's summary and any preview link from the reply."
             },
             {
-              "description": "Setup: Acme Demo exists. Sends a follow-up in the same chat after Flint replies.",
-              "prompt": "On Acme Demo, change the homepage hero headline to 'Launch faster with Acme'. When that's done, make the main button say 'Get started'.",
+              "description": "Setup: Acme Demo Website exists. Sends a follow-up in the same chat after Flint replies.",
+              "prompt": "On Acme Demo Website, change the homepage hero headline to 'Launch faster with Acme'. When that's done, make the main button say 'Get started'.",
               "tools_triggered": "list_sites, start_chat, wait_for_reply, send_message",
               "expected_behavior": "Starts one chat with start_chat for the headline change and waits with wait_for_reply until it completes, then calls send_message with the same chatId for the button change and waits again with the new messageId. Reports both changes from Flint's replies and starts no second chat."
             },
             {
-              "description": "Setup: Acme Demo exists. Publishes only on an explicit request.",
-              "prompt": "Publish my Flint site Acme Demo to production.",
+              "description": "Setup: Acme Demo Website exists. Publishes only on an explicit request.",
+              "prompt": "Publish my Flint site Acme Demo Website to production.",
               "tools_triggered": "list_sites, publish_site",
-              "expected_behavior": "Calls list_sites to find Acme Demo's siteId, calls publish_site once with that siteId, and confirms the publish using the tool response."
+              "expected_behavior": "Calls list_sites to find Acme Demo Website's siteId, calls publish_site once with that siteId, and confirms the publish using the tool response."
             }
           ],
           "negative": [
             {
               "description": "Google Ads changes cannot run over this plugin. The assistant should explain that Flint can draft ad changes but a person runs them in Flint, and must not claim the campaign was changed.",
-              "prompt": "Pause my Google Ads campaign for Acme Demo and raise the budget on the brand campaign."
+              "prompt": "Pause my Google Ads campaign for Acme Demo Website and raise the budget on the brand campaign."
             },
             {
               "description": "Deleting a site is not supported. The assistant should say so and point the user to Flint, without calling publish_site or claiming the site was deleted.",
-              "prompt": "Delete my Flint site Acme Demo."
+              "prompt": "Delete my Flint site Acme Demo Website."
             },
             {
               "description": "Generic front-end code is not a Flint site edit. The assistant should write the code itself and call no Flint tools.",
