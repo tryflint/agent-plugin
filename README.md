@@ -48,9 +48,19 @@ gemini extensions install https://github.com/tryflint/agent-plugin
 
 Grok Build reads Claude Code marketplaces, so the Claude Code marketplace command above works there too.
 
+### Muse Code
+
+Muse Code loads the skill from this plugin, but it won't sign in to a plugin's MCP server. Add the server to `~/.config/muse/settings.json`:
+
+```json
+{ "mcpServers": { "flint": { "type": "streamable-http", "url": "https://mcp.tryflint.com/mcp" } } }
+```
+
+Then run `muse mcp login flint`.
+
 ### Other MCP clients
 
-Add a custom connector pointing at `https://mcp.tryflint.com/mcp` and sign in with Flint. This works in ChatGPT, Claude.ai, grok.com, Grok Bot, and Muse.
+Add a custom connector pointing at `https://mcp.tryflint.com/mcp` and sign in with Flint. This works in ChatGPT, Claude.ai, grok.com, and Grok Bot.
 
 ## Usage
 
@@ -80,17 +90,15 @@ One plugin, one skill, and one MCP server, described once per agent:
 
 | File | Read by |
 | --- | --- |
-| `plugin.json`, `mcp.json` | Agent Plugins format: Codex and the OpenAI plugin directory |
-| `.agents/plugins/marketplace.json` | Codex marketplace |
-| `.claude-plugin/`, `.mcp.json` | Claude Code and Grok Build |
+| `plugin.json`, `mcp.json` | Agent Plugins format: Codex, the OpenAI plugin directory, and Muse Code. Grok Build and Codex read this ahead of their own folders |
+| `.agents/plugins/marketplace.json` | Codex and Muse Code marketplaces |
+| `.claude-plugin/`, `.mcp.json` | Claude Code. Grok Build also takes its MCP server from `.mcp.json` |
 | `.cursor-plugin/` | Cursor and Grok Bot |
-| `.grok-plugin/plugin.json` | Grok Build plugin catalog |
-| `.muse-plugin/plugin.json` | Muse Code |
-| `.antigravity-plugin/plugin.json` | Google Antigravity |
-| `gemini-extension.json`, `GEMINI.md` | Gemini CLI and its extension gallery. `GEMINI.md` repeats the skill, because Gemini extensions can't load `skills/` |
+| `.antigravity-plugin/plugin.json`, `mcp_config.json` | Google Antigravity |
+| `gemini-extension.json` | Gemini CLI and its extension gallery |
 | `skills/` | Every agent |
 
-release-please stamps one version into every manifest, and CI checks they match and that `GEMINI.md` matches the skill.
+release-please stamps one version into every manifest, and CI checks they match.
 
 ## Support
 
